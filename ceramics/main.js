@@ -163,7 +163,7 @@ $(document).ready(function(){
 			success : function(data){
 				$(".overlay").hide();
 				if (data == "register_success") {
-					window.location.href = "cart.php";
+					window.location.href = "product.php";
 				}else{
 					$("#signup_msg").html(data);
 				}

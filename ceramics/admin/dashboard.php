@@ -87,7 +87,7 @@ if (!isset($_SESSION["userid"])) {
 						<div class="card-body">
 						<h4 class="card-title">Products</h4>
 						<p class="card-text">Here you can manage your prpducts and you add new products</p>
-						<a href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary">Add</a>
+						<a id = "add" href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary">Add</a>
 						<a href="manage_product.php" class="btn btn-primary">Manage</a>
 					</div>
 				</div>
@@ -99,8 +99,8 @@ if (!isset($_SESSION["userid"])) {
 				<div class="card">
 						<div class="card-body">
 						<h4 class="card-title">Customer Details</h4>
-						<p class="card-text">Here you can manage customer details.</p>
-						<a href="#" class="btn btn-primary">Manage</a>
+						<p class="card-text">Here you can see customer details.</p>
+						<a href="manage_customers.php" class="btn btn-primary">Show Details</a>
 					</div>
 				</div>
 			</div>

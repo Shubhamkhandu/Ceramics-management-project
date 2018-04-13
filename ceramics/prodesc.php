@@ -101,8 +101,8 @@ session_start();
 	$b_id    = $row2['brand_id'];
 	$b_title   = $row2['brand_title'];
 
-        echo "<div class='col-lg-6 col-md-6 mb-6'>
-            <img class='card-img-top' src='product_images/".$pro_image."' alt=''>
+        echo "<div>
+            <img class='card-img-top col-lg-6 col-md-6 mb-6' src='product_images/".$pro_image."' alt=''>
         </div>
 
         <div class='col-lg-6 col-md-6 mb-6'>

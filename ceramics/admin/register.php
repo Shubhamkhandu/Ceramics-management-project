@@ -1,3 +1,9 @@
+<?php
+include_once("./database/constants.php");
+if (!isset($_SESSION["userid"])) {
+	header("location:".DOMAIN."/index.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 	<link rel="stylesheet" type="text/css" href="./includes/style.css">
- 	<script type="text/javascript" src="./js/main.js"></script>
+ 	<script type="text/javascript" src="./js/order.js"></script>
  </head>
 <body>
 <div class="overlay"><div class="loader"></div></div>

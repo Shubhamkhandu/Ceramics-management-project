@@ -235,35 +235,47 @@ $(document).ready(function(){
 
 	//add product
 	$("#product_form").on("submit",function(){
-		var picture = document.getElementById("picture").value;
-		picture = picture.slice(12);
-		var picture1 = document.getElementById("picture").value;
-		$.ajax({
-				url : DOMAIN+"/process.php",
-				method : "POST",
-				data : $("#product_form").serialize() + "&picture=" + picture + "&picture1=" + picture1,
-				success : function(data){
-					if(data == "un_upload"){
-						console.log(data);
-						alert("File not able to be moved");
-					}
-					if (data == "NEW_PRODUCT_ADDED") {
-						alert("New Product Added Successfully..!");
-						$("#product_name").val("");
-						$("#select_cat").val("");
-						$("#select_brand").val("");
-						$("#product_price").val("");
-						$("#product_qty").val("");
-						$("#product_image").val("");
-						$("#product_details").val("");
-
-					}else{
-						console.log(data);
-						alert(data);
-					}
-						
-				}
-			})
+		var image = $("#userfile").val();
+		if(image == ''){
+			alert("Please select a image");
+		}
+		else{
+			var ext = $("#userfile").val().split('.').pop().toLowerCase();
+			if(jQuery.inArray(ext,['png','jpg','jpeg']) == -1){
+				alert("Please select proper file(jpeg,png,jpg)");
+				$("#userfile").val('');
+			}
+			else{
+				$.ajax({
+						url : DOMAIN+"/process.php",
+						method : "POST",
+						data : new FormData(this),
+						processData: false,
+						contentType:false,
+						success : function(data){
+							if(data == "un_upload"){
+								console.log(data);
+								alert("File not able to be moved");
+							}
+							if (data == "NEW_PRODUCT_ADDED") {
+								alert("New Product Added Successfully..!");
+								$("#product_name").val("");
+								$("#select_cat").val("");
+								$("#select_brand").val("");
+								$("#product_price").val("");
+								$("#product_qty").val("");
+								$("#image_id").val("");
+								$("#product_image").val("");
+								$("#product_details").val("");
+		
+							}else{
+								console.log(data);
+								alert(data);
+							}					
+						}
+				})
+			}
+		}
 	})
 
 

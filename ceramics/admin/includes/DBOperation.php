@@ -43,9 +43,9 @@ class DBOperation
 
 	public function addProduct($cid,$bid,$pro_name,$price,$stock,$date,$image,$details){
 		$pre_stmt = $this->con->prepare("INSERT INTO `products`
-			(`product_cat`, `product_brand`, `product_title`, `product_price`,`product_desc`,`product_image`,`product_stock`, `added_date`, `product_keywords`)
-			 VALUES (?,?,?,?,?,?,?,?,?)");
-		$pre_stmt->bind_param("iisississ",$cid,$bid,$pro_name,$price,$details,$image,$stock,$date,"NULL");
+			(`product_cat`, `product_brand`, `product_title`, `product_price`,`product_desc`,`product_image`,`product_stock`, `added_date`)
+			 VALUES (?,?,?,?,?,?,?,?)");
+		$pre_stmt->bind_param("iisissis",$cid,$bid,$pro_name,$price,$details,$image,$stock,$date);
 		$result = $pre_stmt->execute() or die($this->con->error);
 		if ($result) {
 			return "NEW_PRODUCT_ADDED";

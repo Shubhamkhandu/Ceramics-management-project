@@ -71,13 +71,66 @@ session_start();
 	</div>
 </div>	
 
-      <!-- Jumbotron Header -->
-      <header>
-      
-      	<img class="cover" src='logo/logo.jpg' style="height:100%; width:100%;" alt="Vijay Ceramics">
-      
-      </header>
-	<p><br/></p>
+<header>
+	  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2500">
+
+	    <ol class="carousel-indicators">
+	      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	      <li data-target="#myCarousel" data-slide-to="1"></li>
+	      <li data-target="#myCarousel" data-slide-to="2"></li>
+	      <li data-target="#myCarousel" data-slide-to="3"></li>
+	      <li data-target="#myCarousel" data-slide-to="4"></li>
+	    </ol>
+
+	    <div class="carousel-inner">
+
+	      <div class="item active">
+	        <img src="logo/logo1.jpeg" alt="Vijay Ceramics" style="width:100%;height:100%;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	          <h1>Vijay Ceramics</h1>
+	        </div>
+	      </div>
+
+	      <div class="item">
+	        <img src="logo/logo2.jpeg" alt="Vijay Ceramics" style="width:100%;height:100%;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	          <h1>Vijay Ceramics</h1>
+	        </div>
+	      </div>
+	    
+	      <div class="item">
+	        <img src="logo/logo3.jpg" alt="Vijay Ceramics" style="width:100%;height:100%;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	          <h1>Vijay Ceramics</h1>
+	        </div>
+	      </div>
+
+	      <div class="item">
+	        <img src="logo/logo4.png" alt="Vijay Ceramics" style="width:100%;height:100%;">
+	      </div>
+
+	      <div class="item">
+	        <img src="logo/logo.png" alt="Vijay Ceramics" style="width:100%;height:100%;">
+	      </div>
+  
+	    </div>
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+	
+	
+	
+	      
+</header>
+<p><br/></p>
 
       
 <?php

@@ -39,7 +39,9 @@
           </div>
            <div class="form-group">
             <label>Product Image</label>
-            	<input type="file" name="userfile" id="picture" style="width:100%" />
+            	<input type="file" name="userfile" id="userfile" style="width:100%" />
+            	<input type="hidden" name ="action" id ="action" value="insert" />
+            	<input type="hidden" name ="image_id" id ="image_id"/
           </div>
           <div class="form-group">
             <label>Product Price</label>

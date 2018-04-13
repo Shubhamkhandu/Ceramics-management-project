@@ -57,10 +57,10 @@ if (isset($_POST["brand_name"])) {
 
 //Add Product
 if (isset($_POST["added_date"]) AND isset($_POST["product_name"])) {
-	$pic = $_POST["picture"];
-	$pic1 = $_POST["picture1"];
-	$target_path = "../../product_images/".$pic;
-	if(move_uploaded_file($pic1, $target_path)){
+	$file_name = $_FILES['userfile']['name'];
+	$temp_name= $_FILES["userfile"]["tmp_name"];
+	$target_dir = "../../product_images/".$file_name;
+	if(move_uploaded_file($temp_name, $target_dir)){
 		$obj = new DBOperation();
 		$result = $obj->addProduct($_POST["select_cat"],
 								$_POST["select_brand"],
@@ -68,7 +68,7 @@ if (isset($_POST["added_date"]) AND isset($_POST["product_name"])) {
 								$_POST["product_price"],
 								$_POST["product_qty"],
 								$_POST["added_date"],
-								$pic,
+								$file_name,
 								$_POST["product_details"]);
 		echo $result;
 		exit();
@@ -314,5 +314,37 @@ if (isset($_POST["order_date"]) AND isset($_POST["cust_name"])) {
 	$m = new Manage();
 	echo $result = $m->storeCustomerOrderInvoice($orderdate,$cust_name,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
 }
+
+
+
+//-------------------------Customer-------------------------
+
+
+if (isset($_POST["showCustomer"])) {
+	$m = new Manage();
+	$result = $m->manageRecordWithPagination("user_info",$_POST["pageno"]);
+	$rows = $result["rows"];
+	$pagination = $result["pagination"];
+	if (count($rows) > 0) {
+		$n = (($_POST["pageno"] - 1) * 5)+1;
+		foreach ($rows as $row) {
+			?>
+				<tr>
+			        <td><?php echo $n; ?></td>
+			        <td><?php echo "".$row["first_name"]." ".$row["last_name"]; ?></td>
+			        <td><?php echo $row["email"]; ?></td>
+			        <td><?php echo $row["mobile"]; ?></td>
+				<td><?php echo "".$row["address1"].",".$row["address2"]; ?></td>
+			      </tr>
+			<?php
+			$n++;
+		}
+		?>
+			<tr><td colspan="5"><?php echo $pagination; ?></td></tr>
+		<?php
+		exit();
+	}
+}
+
 
 ?>

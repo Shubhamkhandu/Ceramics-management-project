@@ -21,7 +21,11 @@ class Manage
 			$sql = "SELECT p.cat_id,p.cat_title as category, c.cat_title as parent FROM categories p LEFT JOIN categories c ON p.parent_cat=c.cat_id ".$a["limit"];
 		}else if($table == "products"){
 			$sql = "SELECT p.product_id,p.product_title as product_name, c.cat_title as category_name ,b.brand_title as brand_name ,p.product_price,p.product_stock,p.added_date,p.product_desc as description ,p.product_image as image FROM products p,brands b,categories c WHERE p.product_brand = b.brand_id AND p.product_cat = c.cat_id ".$a["limit"];
-		}else{
+		}
+		else if ($table == "user_info"){
+			$sql = "SELECT user_id,first_name,last_name,email,mobile,address1,address2 from user_info where usertype = 'Customer' ".$a["limit"];
+		}
+		else{
 			$sql = "SELECT * FROM ".$table." ".$a["limit"];
 		}
 		$result = $this->con->query($sql) or die($this->con->error);

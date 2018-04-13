@@ -257,6 +257,19 @@ $(document).ready(function(){
 				}
 			})
 	})
+	//show customer details....
+	showCustomer(1);
+	function showCustomer(pn){
+		$.ajax({
+			url : DOMAIN+"/includes/process.php",
+			method : "POST",
+			data : {showCustomer:1,pageno:pn},
+			success : function(data){
+				console.log(data);
+				$("#get_customer").html(data);		
+			}
+		})
+	}
 
 
 	
