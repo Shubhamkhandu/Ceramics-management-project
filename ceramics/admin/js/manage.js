@@ -236,7 +236,7 @@ $(document).ready(function(){
 				$("#select_brand").val(data["product_brand"]);
 				$("#product_price").val(data["product_price"]);
 				$("#product_qty").val(data["product_stock"]);
-
+				$("#product_details").val(data["product_desc"]);
 			}
 		})
 	})

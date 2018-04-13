@@ -21,7 +21,7 @@ if (!isset($_SESSION["userid"])) {
 	<!-- Navbar -->
 	<?php include_once("./templates/header.php"); ?>
 	<br/><br/>
-	<div class="container">
+	<div id = 'box_prod' class="container">
 		<table class="table table-hover table-bordered">
 		    <thead>
 		      <tr>
@@ -33,19 +33,10 @@ if (!isset($_SESSION["userid"])) {
 		        <th>Stock</th>
 		        <th>Added Date</th>
 		        <th>Description</th>
+		        <th>Action</th>
 		      </tr>
 		    </thead>
 		    <tbody id="get_product">
-		      <!--<tr>
-		        <td>1</td>
-		        <td>Electronics</td>
-		        <td>Root</td>
-		        <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
-		        <td>
-		        	<a href="#" class="btn btn-danger btn-sm">Delete</a>
-		        	<a href="#" class="btn btn-info btn-sm">Edit</a>
-		        </td>
-		      </tr>-->
 		    </tbody>
 		  </table>
 	</div>

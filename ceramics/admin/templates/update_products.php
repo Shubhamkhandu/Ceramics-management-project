@@ -18,7 +18,7 @@
             </div>
             <div class="form-group col-md-6">
               <label>Product Name</label>
-              <input type="text" class="form-control" name="update_product" id="update_product" placeholder="Enter Product Name" required>
+              <input type="text" class="form-control" name="update_product" id="update_product" placeholder="Enter Product Name" readonly/>
             </div>
           </div>
           <div class="form-group">
@@ -36,12 +36,6 @@
 
               
             </select>
-          </div>
-          <div class="form-group">
-            <label>Product Image</label>
-            	<input type="file" name="userfile" id="userfile" style="width:100%" />
-            	<input type="hidden" name ="action" id ="action" value="insert" />
-            	<input type="hidden" name ="image_id" id ="image_id"/>
           </div>
           <div class="form-group">
             <label>Product Price</label>

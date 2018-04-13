@@ -421,6 +421,43 @@ if(isset($_POST["search"])){
 			";
 		}
 	}
+	else{
+		$cat_query = "SELECT cat_id FROM categories WHERE cat_title LIKE '%".$Name."%';";
+		$run_query = mysqli_query($con,$cat_query);
+		if(mysqli_num_rows($run_query) > 0){
+			while($row = mysqli_fetch_array($run_query)){
+				$cat_id    = $row['cat_id'];
+				$product_query = "SELECT * FROM products WHERE product_cat = ".$cat_id.";";
+				$run_query1 = mysqli_query($con,$product_query);
+				if(mysqli_num_rows($run_query1) > 0){
+					while($row1 = mysqli_fetch_array($run_query1)){
+						$pro_id = $row1['product_id'];
+						$pro_cat   = $row1['product_cat'];
+						$pro_brand = $row1['product_brand'];
+						$pro_title = $row1['product_title'];
+						$pro_price = $row1['product_price'];
+						$pro_image = $row1['product_image'];
+						echo "
+							<div class='col-md-4'>
+								<a href='prodesc.php?varname=".$pro_id."'>
+										<div class='panel panel-info'>
+											<div class='panel-heading'>$pro_title</div>
+											<div class='panel-body'>
+												<img src='product_images/$pro_image' style='width:200px; height:200px;'/>
+											</div>
+											<div class='panel-heading'>Rs.$pro_price.00
+												<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>AddToCart</button>
+											</div>
+										</div>
+										</a>
+									</div>	
+						";
+					}
+				}
+			}
+		}
+	
+	}
 }
 
 

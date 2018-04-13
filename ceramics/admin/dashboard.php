@@ -17,6 +17,44 @@ if (!isset($_SESSION["userid"])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  	<script type="text/javascript" src="./js/main.js"></script>
+ 	<script type="text/javascript" src="./js/calender.js"></script>
+ 	<style>
+ 		body{
+ 		background-color:#d9d9d9;
+ 		}
+    		#calendar{
+    		background-color: cornflowerblue;
+    		color: #fff;
+    		border-radius: 5%;
+	    	box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+		}
+
+		#calendar>p{
+    		font-family: Verdana, Arial, sans-serif;
+    		padding: 10px 0;
+    		margin: 0;
+    		color: #fff;
+    		text-align: center;
+		}
+
+		#calendar-day{
+    		font-size: 30px;
+		}
+
+		#calendar-month-year{
+    		font-size: 20px;
+		}
+
+		#calendar-date{
+    		font-size: 64px;
+    		padding-top: 10px;
+    		padding-bottom: 0;
+		}
+		#topic{
+		text-align:center;
+		font-family:Bodani MT,Didot,Didot LT STD,Hoefier Text,Garamond,Time New Roman,serif;
+		}
+	</style>	
  </head>
 <body>
 	<!-- Navbar -->
@@ -38,20 +76,24 @@ if (!isset($_SESSION["userid"])) {
 			</div>
 			<div class="col-md-8">
 				<div class="jumbotron" style="width:100%;height:100%;">
-					<h1>Welcome <?php echo($_SESSION["username"]);?></h1>
+					<h1 id ="topic">Welcome <?php echo($_SESSION["username"]);?></h1>
+					<br />
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-6" >
+						<br />
 							<iframe src="http://free.timeanddate.com/clock/i616j2aa/n1993/szw160/szh160/cf100/hnce1ead6" frameborder="0" width="160" height="160"></iframe>
 
 						</div>
 						<div class="col-sm-6">
-							<div class="card">
-						      <div class="card-body">
-						        <h4 class="card-title">New Orders</h4>
-						        <p class="card-text">Here you can make invoices and create new orders</p>
-						        <a href="new_order.php" class="btn btn-primary">New Orders</a>
-						      </div>
-						    </div>
+						  <!---<div class="card">--->
+						   <div class="card-body">  	
+						      <div id="calendar">
+            							<p id="calendar-day"></p>
+            							<p id="calendar-date"></p>
+            							<p id="calendar-month-year"></p>
+        					      </div>
+        					    </div>
+						 <!--- </div>--->
 						</div>
 					</div>
 				</div>
@@ -107,10 +149,10 @@ if (!isset($_SESSION["userid"])) {
 			<div class="col-md-4">
 				<div class="card">
 						<div class="card-body">
-						<h4 class="card-title">Orders Placed</h4>
-						<p class="card-text">Here you can manage the orders placed.</p>
-						<a href="#" class="btn btn-primary">Manage</a>
-					</div>
+						<h4 class="card-title">New Orders</h4>
+						<p class="card-text">Here you can make invoices and create new orders</p>
+						<a href="new_order.php" class="btn btn-primary">New Orders</a>
+						</div>
 				</div>
 			</div>
 			<div class="col-md-4">
