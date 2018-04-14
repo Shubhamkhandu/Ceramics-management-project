@@ -41,7 +41,7 @@ if (!isset($_SESSION["userid"])) {
 				  		<div class="form-group row">
 				  			<label class="col-sm-3 col-form-label" align="right">Customer Name*</label>
 				  			<div class="col-sm-6">
-				  				<input type="text" id="cust_name" name="cust_name"class="form-control form-control-sm" placeholder="Enter Customer Name" required/>
+				  				<input type="text" id="cust_name" name="cust_name" class="form-control form-control-sm" placeholder="Enter Customer Name" required/>
 				  			</div>
 				  		</div>
 
@@ -84,7 +84,7 @@ if (!isset($_SESSION["userid"])) {
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="discount" class="col-sm-3 col-form-label" align="right">Discount</label>
+                      <label for="discount" class="col-sm-3 col-form-label" align="right">Discount(Rs)</label>
                       <div class="col-sm-6">
                         <input type="text" name="discount" class="form-control form-control-sm" id="discount" required/>
                       </div>

@@ -56,7 +56,12 @@ class DBOperation
 	}
 
 	public function getAllRecord($table){
-		$pre_stmt = $this->con->prepare("SELECT * FROM ".$table);
+		if($table =="products"){
+			$pre_stmt = $this->con->prepare("SELECT * FROM ".$table." where product_stock != 0");
+		}
+		else{
+			$pre_stmt = $this->con->prepare("SELECT * FROM ".$table);
+		}
 		$pre_stmt->execute() or die($this->con->error);
 		$result = $pre_stmt->get_result();
 		$rows = array();

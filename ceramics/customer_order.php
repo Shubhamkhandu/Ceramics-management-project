@@ -51,10 +51,11 @@ if(!isset($_SESSION["uid"])){
 							if (mysqli_num_rows($query) > 0) {
 								while ($row=mysqli_fetch_array($query)) {
 									?>
-										<div class="row">
-											<div class="col-md-6">
+										<div class="row" style="border:1px solid #DCDCDC;">
+											<div class="col-md-4">
 												<img style="float:right;" src="product_images/<?php echo $row['product_image']; ?>" class="img-responsive img-thumbnail"/>
 											</div>
+											<div class="col-md-2"></div>
 											<div class="col-md-6">
 												<table>
 													<tr><td>Product Name</td><td><b><?php echo $row["product_title"]; ?></b> </td></tr>

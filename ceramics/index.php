@@ -124,11 +124,6 @@ session_start();
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-	
-	
-	
-	      
 </header>
 <p><br/></p>
 
@@ -143,9 +138,9 @@ include "db.php";
 			$cat_id = $row['cat_id'];
 			echo "	<div class='container'>      
 			       <div class='row text-center'>
-			      <header style='background-color:#9AC0CD'>
+			      <header style='background-color:#4c4ca6'>
 			      	<div class='container'>
- 			     	<h2 class='display-3'>$cat_title</h2></div>
+ 			     	<h2 class='display-3' style='color:#fff;font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;'>$cat_title</h2></div>
  			     </header>
  			     	<p><br/></p>
       

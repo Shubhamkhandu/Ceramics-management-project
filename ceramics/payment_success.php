@@ -5,35 +5,42 @@ if(!isset($_SESSION["uid"])){
 	header("location:index.php");
 }
 
-if (isset($_GET["st"])) {
+if (isset($_POST["st"])) {
 
 	# code...
-	$trx_id = $_GET["tx"];
-		$p_st = $_GET["st"];
-		$amt = $_GET["amt"];
+		$trx_id = $_POST["transaction_id"];
+		$p_st = $_POST["st"];
+/*		$amt = $_GET["amt"];
 		$cc = $_GET["cc"];
 		$cm_user_id = $_GET["cm"];
 		$c_amt = $_COOKIE["ta"];
-	if ($p_st == "Completed") {
+*/	if ($p_st == "Completed") {
 
 		
 
 		include_once("db.php");
-		$sql = "SELECT p_id,qty FROM cart WHERE user_id = '$cm_user_id'";
+		$sql = "SELECT p_id,qty FROM cart WHERE user_id = '".$_SESSION["uid"]."'";
 		$query = mysqli_query($con,$sql);
 		if (mysqli_num_rows($query) > 0) {
 			# code...
 			while ($row=mysqli_fetch_array($query)) {
-			$product_id[] = $row["p_id"];
-			$qty[] = $row["qty"];
+				$product_id[] = $row["p_id"];
+				$qty[] = $row["qty"];
 			}
 
 			for ($i=0; $i < count($product_id); $i++) { 
-				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status) VALUES ('$cm_user_id','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st')";
-				mysqli_query($con,$sql);
-			}
+				$sql1 = "SELECT product_stock FROM products WHERE product_id =".$product_id[$i].";";
+				$run_query1 = mysqli_query($con,$sql1);
+				$row=mysqli_fetch_array($run_query1);
+				$pro_stock = $row['product_stock'];
+				$a = $pro_stock-$qty[$i];
+				$sql2 = "UPDATE products SET product_stock=".$a." WHERE product_id = ".$product_id[$i].";";
+				mysqli_query($con,$sql2);
 
-			$sql = "DELETE FROM cart WHERE user_id = '$cm_user_id'";
+				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status) VALUES ('".$_SESSION["uid"]."','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st')";
+				mysqli_query($con,$sql);				
+			}
+			$sql = "DELETE FROM cart WHERE user_id = '".$_SESSION["uid"]."'";
 			if (mysqli_query($con,$sql)) {
 				?>
 					<!DOCTYPE html>
@@ -74,9 +81,8 @@ if (isset($_GET["st"])) {
 										<div class="panel-body">
 											<h1>Thank You! </h1>
 											<hr/>
-											<p>Hello <?php echo "<b>".$_SESSION["name"]."</b>"; ?>,Your payment process is 
-											successfully completed and your Transaction id is <b><?php echo $trx_id; ?></b><br/>
-											you can continue your Shopping <br/></p>
+											<p>Hello <?php echo "<b>".$_SESSION["name"]."</b>"; ?>,Your payment process is successfully completed and your Transaction id is <b><?php echo $trx_id; ?></b><br/>
+											You can continue your Shopping... <br/></p>
 											<a href="index.php" class="btn btn-success btn-lg">Continue Shopping</a>
 										</div>
 										<div class="panel-footer"></div>

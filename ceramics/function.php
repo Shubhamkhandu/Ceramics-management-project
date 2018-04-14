@@ -45,15 +45,15 @@ function send_mail($to, $token)
 	$mail->isSMTP();
 	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
-	$mail->Username = 'email@gmail.com';
-	$mail->Password = 'password';
+	$mail->Username = 'info.vijayceramics@gmail.com';
+	$mail->Password = 'ceramics18';
 	$mail->SMTPSecure = 'ssl';
 	$mail->Port = 465;
 	
-	$mail->From = 'email@gmail.com';
+	$mail->From = 'info.vijayceramics@gmail.com';
 	$mail->FromName = 'Vijay Ceramics';
 	$mail->addAddress($to);
-	$mail->addReplyTo('email@gmail.com', 'Reply');
+	$mail->addReplyTo('info.vijayceramics@gmail.com', 'Reply');
 	
 	$mail->isHTML(true);
 	

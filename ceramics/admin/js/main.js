@@ -1,6 +1,8 @@
+
 $(document).ready(function(){
 	var DOMAIN1 = "http://localhost/ceramics/admin";
 	var DOMAIN = "http://localhost/ceramics/admin/includes";
+	
 	$("#register_form").on("submit",function(){
 		var status = false;
 		var fname = $("#f_name");
@@ -102,7 +104,46 @@ $(document).ready(function(){
 			status = true;
 		}
 	})
+	//Chnage password
+	$("#change_pass").on("submit",function(event){
+		event.preventDefault();
+		$(".overlay").show();
+		$.ajax({
+			url	: DOMAIN + "/process.php",
+			method:	"POST",
+			data	:$("#change_pass").serialize(),
 
+			success	:function(data){
+				if(data == "Error"){
+					window.alert("Something went wrong");
+					$(".overlay").hide();
+				}
+				else if(data == "EMAIL NOT CORRECT"){
+					window.alert("EMAIL NOT CORRECT");
+					$(".overlay").hide();
+				}
+				else if(data == "Password incorrect"){
+					window.alert("Old paswword do not match");
+					$("#old_pass").html("");
+					$("#pass_1").html("");
+					$("#r_pass").html("");
+					$(".overlay").hide();
+				}
+				else if(data == "Wrong Entry"){
+					window.alert("New password and Re-enter paswword do not match");
+					$("#pass_1").html("");
+					$("#r_pass").html("");
+					$(".overlay").hide();
+				}
+				else{
+					alert("Password changed successfully");
+					$(".overlay").hide();
+					window.location.href = DOMAIN1 +"/dashboard.php";
+					
+				}
+			}
+		})
+	})
 	//For Login Part
 	$("#form_login").on("submit",function(){
 		var email = $("#log_email");
@@ -145,7 +186,6 @@ $(document).ready(function(){
 						status = false;
 					}else{
 						$(".overlay").hide();
-						console.log(data);
 						window.location.href = DOMAIN1 +"/dashboard.php";
 					}
 				}
@@ -232,7 +272,7 @@ $(document).ready(function(){
 			})
 		}
 	})
-
+	
 	//add product
 	$("#product_form").on("submit",function(){
 		var image = $("#userfile").val();
@@ -254,7 +294,6 @@ $(document).ready(function(){
 						contentType:false,
 						success : function(data){
 							if(data == "un_upload"){
-								console.log(data);
 								alert("File not able to be moved");
 							}
 							if (data == "NEW_PRODUCT_ADDED") {
@@ -269,7 +308,6 @@ $(document).ready(function(){
 								$("#product_details").val("");
 		
 							}else{
-								console.log(data);
 								alert(data);
 							}					
 						}

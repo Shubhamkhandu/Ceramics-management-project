@@ -25,6 +25,9 @@ class Manage
 		else if ($table == "user_info"){
 			$sql = "SELECT user_id,first_name,last_name,email,mobile,address1,address2 from user_info where usertype = 'Customer' ".$a["limit"];
 		}
+		else if($table == "invoice"){
+			$sql = "SELECT  invoice_no, customer_name, order_date, net_total, paid, due from invoice ".$a["limit"];		
+		}
 		else{
 			$sql = "SELECT * FROM ".$table." ".$a["limit"];
 		}
@@ -40,13 +43,13 @@ class Manage
 	}
 
 	private function pagination($con,$table,$pno,$n){
-		$query = $con->query("SELECT COUNT(*) as rows FROM ".$table);
+		$query = $con->query("SELECT COUNT(*) as t FROM ".$table);
 		$row = mysqli_fetch_assoc($query);
 		//$totalRecords = 100000;
 		$pageno = $pno;
 		$numberOfRecordsPerPage = $n;
 
-		$last = ceil($row["rows"]/$numberOfRecordsPerPage);
+		$last = ceil($row["t"]/$numberOfRecordsPerPage);
 
 		$pagination = "<ul class='pagination'>";
 
@@ -139,11 +142,12 @@ class Manage
 	}
 
 
-	public function storeCustomerOrderInvoice($orderdate,$cust_name,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type){
+	public function storeCustomerOrderInvoice($cust_name,$orderdate,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type){
+	
 		$pre_stmt = $this->con->prepare("INSERT INTO 
 			`invoice`(`customer_name`, `order_date`, `sub_total`,
-			 `gst`, `discount`, `net_total`, `paid`, `due`, `payment_type`) VALUES (?,?,?,?,?,?,?,?,?)");
-		$pre_stmt->bind_param("ssdddddds",$cust_name,$orderdate,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
+			 `gst`, `discount`, `net_total`, `paid`, `due`, `payment_type`) VALUES (?,CURDATE(),?,?,?,?,?,?,?)");
+		$pre_stmt->bind_param("sdddddds",$cust_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
 		$pre_stmt->execute() or die($this->con->error);
 		$invoice_no = $pre_stmt->insert_id;
 		if ($invoice_no != null) {
@@ -155,7 +159,7 @@ class Manage
 					return "ORDER_FAIL_TO_COMPLETE";
 				}else{
 					//Update Product stock
-					$sql = "UPDATE products SET product_stock = '$rem_qty' WHERE product_name = '".$ar_pro_name[$i]."'";
+					$sql = "UPDATE products SET product_stock = '$rem_qty' WHERE product_title = '".$ar_pro_name[$i]."'";
 					$this->con->query($sql);
 				}
 
@@ -169,13 +173,23 @@ class Manage
 			return $invoice_no;
 		}
 
-
-
+	}
+	
+	public function getAlldetails($table,$pk,$id){
+		$pre_stmt = $this->con->prepare("SELECT * FROM ".$table." WHERE ".$pk." = ?");
+		$pre_stmt->bind_param("i",$id);
+		$pre_stmt->execute() or die($this->con->error);
+		$result = $pre_stmt->get_result();
+		$rows = array();
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()){
+				$rows[] = $row;
+			}
+			return $rows;
+		}
+		return "NO_DATA";
 	}
 
-
-
-	
 }
 
 

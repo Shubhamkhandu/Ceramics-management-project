@@ -85,9 +85,10 @@ session_start();
         $query = "SELECT * FROM products WHERE product_id =".$prid.";";
 	$run_query = mysqli_query($con,$query);
 	$row = mysqli_fetch_array($run_query);
-	$pro_id    = $row['product_id'];
-	$pro_cat   = $row['product_cat'];
-	$pro_desc   = $row['product_desc'];
+	$pro_id = $row['product_id'];
+	$pro_cat = $row['product_cat'];
+	$pro_desc = $row['product_desc'];
+	$pro_stock = $row['product_stock'];
 	$pro_brand = $row['product_brand'];
 	$pro_title = $row['product_title'];
 	$pro_price = $row['product_price'];
@@ -113,11 +114,17 @@ session_start();
 	    <div>
 	    	<h4 style='color:#830303'><label>Rs.".$pro_price.".00</label></h4>
 	    	<h4>Exclusive of All Taxes</h4>
-	    	<h4>Free Delivery on orders over <label style='color:#830303'>Rs.999.00</label></h4>
-	    	<h4 style='color:#228B22'>In Stock</h4>
-	    </div>
+	    	<h4>Free Delivery on orders over <label style='color:#830303'>Rs.999.00</label></h4>";
+	    
+	  if($pro_stock != 0){
+	  	echo "<h4 style='color:#228B22'>In Stock</h4>";
+	  }
+	  else {
+	  	echo "<h4 style='color:#830303'>Out Of Stock</h4>";
+	  }
+	  echo "</div>
             <div class='card-footer'>
-		<button pid='$pro_id' style='float:right;' id='product' class='btn btn-primary btn-block'>AddToCart</button>
+		<button pid='$pro_id' style='float:right;' id='product' class='btn btn-primary btn-block'>Add To Cart</button>
 	    </div>
           </div>
         </div>
@@ -135,10 +142,10 @@ session_start();
 	
 	
 	<div class="container">      
-	       <div class="row">
-		      <header style="background-color:#9AC0CD">
+	       <div class="row text-center">
+		      <header style="background-color:#4c4ca6">
 		      	<div class="container">
-		     	<h2 class="display-3">Similar Products</h2></div>
+		     	<h2 class="display-3" style="color:#fff;font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">Similar Products</h2></div>
 		     </header>
 	     	<p><br/></p>
       

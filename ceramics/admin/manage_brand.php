@@ -16,11 +16,6 @@ include_once("./database/constants.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  	<script type="text/javascript" src="./js/manage.js"></script>
- 	<style>
- 	body{
- 		background-color:#d9d9d9;
- 		}
- 	</style>
  </head>
 <body>
 	<!-- Navbar -->
@@ -36,15 +31,6 @@ include_once("./database/constants.php");
 		      </tr>
 		    </thead>
 		    <tbody id="get_brand">
-		      <!--<tr>
-		        <td>1</td>
-		        <td>Electronics</td>
-		        <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
-		        <td>
-		        	<a href="#" class="btn btn-danger btn-sm">Delete</a>
-		        	<a href="#" class="btn btn-info btn-sm">Edit</a>
-		        </td>
-		      </tr>-->
 		    </tbody>
 		  </table>
 	</div>

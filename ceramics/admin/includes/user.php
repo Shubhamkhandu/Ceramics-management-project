@@ -84,6 +84,44 @@ class User
 			}
 		}
 	}
+	
+	
+	//for changing the password
+	public function changePassword($email,$oldpassword,$password,$repassword){
+		$pre_stmt = $this->con->prepare("SELECT user_id, password FROM user_info WHERE email = ? AND usertype = 'Admin'");
+		$pre_stmt->bind_param("s",$email);
+		$pre_stmt->execute() or die($this->con->error);
+		$result = $pre_stmt->get_result();
+		if ($result->num_rows < 1) {
+			return "EMAIL NOT CORRECT";
+		}
+		else{
+			$row = $result->fetch_assoc();
+			$pass = $row['password'];
+			   if($oldpassword!= $pass){
+        			return "Password incorrect";
+        		   }
+        		   if($password != $repassword){
+        		   	return "Wrong Entry";
+        		   }
+        		   if($password==$repassword) {
+        		   	if (isset($_SESSION["userid"])) {
+					session_destroy();
+				}
+        			$password = md5($password);
+        			$pre_stmt = $this->con->prepare("UPDATE user_info set password = ? WHERE email = ?");
+				$pre_stmt->bind_param("ss",$password,$email);
+				$result = $pre_stmt->execute() or die($this->con->error);
+				if ($result) {
+					return "DONE";
+				}else{
+					return "Error";
+				}
+				
+        		   }		   
+        	}
+	
+	}
 
 }
 ?>

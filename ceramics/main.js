@@ -184,7 +184,6 @@ $(document).ready(function(){
 			data : {addToCart:1,proId:pid},
 			success : function(data){
 				count_item();
-				getCartItem();
 				$('#product_msg').html(data);
 				$('.overlay').hide();
 			}
@@ -204,21 +203,6 @@ $(document).ready(function(){
 		})
 	}
 	//Count user cart items funtion end
-
-	//Fetch Cart item from Database to dropdown menu
-	getCartItem();
-	function getCartItem(){
-		$.ajax({
-			url : "action.php",
-			method : "POST",
-			data : {Common:1,getCartItem:1},
-			success : function(data){
-				$("#cart_product").html(data);
-			}
-		})
-	}
-
-	//Fetch Cart item from Database to dropdown menu
 
 	/*
 		Whenever user change qty we will immediate update their total amount by using keyup funtion
@@ -244,7 +228,7 @@ $(document).ready(function(){
 		$('.total').each(function(){
 			net_total += ($(this).val()-0);
 		})
-		$('.net_total').html("Total : $ " +net_total);
+		$('.net_total').html("Total : Rs. " +net_total);
 
 	})
 	//Change Quantity end here 
@@ -322,7 +306,7 @@ $(document).ready(function(){
 		$('.total').each(function(){
 			net_total += ($(this).val()-0);
 		})
-		$('.net_total').html("Total : $ " +net_total);
+		$('.net_total').html("Total : Rs. " +net_total);
 	}
 
 	//remove product from cart

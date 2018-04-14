@@ -11,6 +11,18 @@ if (isset($_POST["f_name"]) AND isset($_POST["email"])) {
 	exit();
 }
 
+//for change password
+if (isset($_POST["email"]) AND isset($_POST["pass_1"])){
+	$email = $_POST['email'];
+	$oldpassword = $_POST['old_pass'];
+	$oldpassword = md5($oldpassword);
+	$password = $_POST['pass_1'];
+	$repassword = $_POST['r_pass'];
+	$user = new User();
+	$result = $user->changePassword($email,$oldpassword,$password,$repassword);
+	echo $result;
+	exit();
+}
 //For Login Processing
 if (isset($_POST["log_email"]) AND isset($_POST["log_password"])) {
 	$user = new User();
@@ -297,7 +309,6 @@ if (isset($_POST["order_date"]) AND isset($_POST["cust_name"])) {
 	$orderdate = $_POST["order_date"];
 	$cust_name = $_POST["cust_name"];
 
-
 	//Now getting array from order_form
 	$ar_tqty = $_POST["tqty"];
 	$ar_qty = $_POST["qty"];
@@ -313,7 +324,7 @@ if (isset($_POST["order_date"]) AND isset($_POST["cust_name"])) {
 	$due = $_POST["due"];
 	$payment_type = $_POST["payment_type"];
 	$m = new Manage();
-	echo $result = $m->storeCustomerOrderInvoice($orderdate,$cust_name,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
+	echo $result = $m->storeCustomerOrderInvoice($cust_name,$orderdate,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
 }
 
 
@@ -347,5 +358,62 @@ if (isset($_POST["showCustomer"])) {
 	}
 }
 
+
+//-------------------------------Invoice_manage----------------------------------------
+
+if (isset($_POST["manageInvoice"])) {
+	$m = new Manage();
+	$result = $m->manageRecordWithPagination("invoice",$_POST["pageno"]);
+	$rows = $result["rows"];
+	$pagination = $result["pagination"];
+	if (count($rows) > 0) {
+		$n = (($_POST["pageno"] - 1) * 5)+1;
+		foreach ($rows as $row) {
+			?>
+				<tr>
+			        <td><?php echo $n; ?></td>
+			        <td><?php echo $row["customer_name"]; ?></td>
+			        <td><?php echo $row["order_date"]; ?></td>
+			        <td><?php echo $row["net_total"]; ?></td>
+			        <td><?php echo $row["paid"]; ?></td>
+			        <td><?php echo $row["due"]; ?></td>
+			        <td>
+			        	<a href="#" did="<?php echo $row['invoice_no']; ?>" data-toggle="modal" data-target="#show_invoice_2"  class="btn btn-info btn-sm show_invoice">Show</a>
+			        </td>
+			      </tr>
+			<?php
+			$n++;
+		}
+		?>
+			<tr><td colspan="5"><?php echo $pagination; ?></td></tr>
+		<?php
+		exit();
+	}
+}
+
+if (isset($_POST["showInvoice"])) {
+	$m = new Manage();
+	$rows = $m->getAlldetails("invoice_details","invoice_no",$_POST["id"]);
+	if($rows == "NO_DATA"){
+		echo("sorry");
+		exit();
+	}
+	$n = 1;
+	foreach ($rows as $row) {
+		?>
+			<tr>
+			<td><?php echo $n; ?></td>
+			<td><?php echo $row["product_name"]; ?></td>
+			<td><?php echo $row["price"]; ?></td>
+			<td><?php echo $row["qty"]; ?></td>
+			</td>
+			</tr>
+		<?php
+			$n++;
+		}
+		?>
+		<?php
+		exit();
+}
 
 ?>

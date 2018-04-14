@@ -117,7 +117,10 @@ $(document).ready(function(){
 				method : "POST",
 				data : $("#get_order_data").serialize(),
 				success : function(data){
-					if (data < 0) {
+					if(data == "ORDER_FAIL_TO_COMPLETE"){
+						alert("Product is Out of stock");
+					}
+					else if (data < 0) {
 						alert(data);
 					}else{
 						$("#get_order_data").trigger("reset");
@@ -126,9 +129,16 @@ $(document).ready(function(){
 							window.location.href = DOMAIN+"/includes/invoice_bill.php?invoice_no="+data+"&"+invoice;
 						}
 					}
+
+						
+						
+
+					
+
 				}
 			});
 		}
+		
 	});
 
 });

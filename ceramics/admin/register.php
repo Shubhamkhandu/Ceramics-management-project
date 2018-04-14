@@ -15,11 +15,11 @@ if (!isset($_SESSION["userid"])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 	<script type="text/javascript" src="./js/order.js"></script>
+ 	<script type="text/javascript" src="./js/main.js"></script>
  	<style>
  	body{
  		background-color:#d9d9d9;
- 		}
+ 	}
  	</style>
  </head>
 <body>
@@ -61,28 +61,22 @@ if (!isset($_SESSION["userid"])) {
 		            <input type="password" name="password2" class="form-control"  id="password2" placeholder="Password">
 		            <small id="p2_error" class="form-text text-muted"></small>
 		          </div>
-		          <div class="row">
-					<div class="col-md-12">
-						<label for="mobile">Mobile</label>
-						<input type="text" id="mobile" name="mobile"class="form-control">
-						<small id="m_error" class="form-text text-muted"></small>
-					</div>
+		          <div class="form-group">
+				<label for="mobile">Mobile</label>
+				<input type="text" id="mobile" name="mobile"class="form-control">
+				<small id="m_error" class="form-text text-muted"></small>
+			  </div>
+			<div class="form-group">
+				<label for="address1">Address Line 1</label>
+				<input type="text" id="address1" name="address1"class="form-control">
+				<small id="a1_error" class="form-text text-muted"></small>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<label for="address1">Address Line 1</label>
-					<input type="text" id="address1" name="address1"class="form-control">
-					<small id="a1_error" class="form-text text-muted"></small>
-				</div>
+			<div class="form-group">
+				<label for="address2">Address Line 2</label>
+				<input type="text" id="address2" name="address2"class="form-control">
+				<small id="a2_error" class="form-text text-muted"></small>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<label for="address2">Address Line 2</label>
-					<input type="text" id="address2" name="address2"class="form-control">
-					<small id="a2_error" class="form-text text-muted"></small>
-				</div>
-			</div>
-		          <button type="submit" name="user_register" class="btn btn-primary"><span class="fa fa-user"></span>&nbsp;Register</button>
+		        <button type="submit" name="user_register" class="btn btn-primary "><span class="fa fa-user"></span>&nbsp;Register</button>
 		      </form>
 		      </div>
 	      <div class="card-footer text-muted">

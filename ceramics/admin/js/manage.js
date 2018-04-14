@@ -257,6 +257,7 @@ $(document).ready(function(){
 				}
 			})
 	})
+	
 	//show customer details....
 	showCustomer(1);
 	function showCustomer(pn){
@@ -270,7 +271,44 @@ $(document).ready(function(){
 			}
 		})
 	}
-
-
 	
+	$("body").delegate(".page-link","click",function(){
+		var pn = $(this).attr("pn");
+		showCustomer(pn);
+	})
+	
+	//Invoice details page
+	manageInvoice(1);
+	function manageInvoice(pn){
+		$.ajax({
+			url : DOMAIN+"/includes/process.php",
+			method : "POST",
+			data : {manageInvoice:1,pageno:pn},
+			success : function(data){
+				$("#get_invoice").html(data);		
+			}
+		})
+	}
+	//pagination
+	$("body").delegate(".page-link","click",function(){
+		var pn = $(this).attr("pn");
+		manageInvoice(pn);
+	})
+	//show_button
+	$("body").delegate(".show_invoice","click",function(){
+		var did = $(this).attr("did");
+		$.ajax({
+			url : DOMAIN+"/includes/process.php",
+			method : "POST",
+			data : {showInvoice:1,id:did},
+			success : function(data){
+				if(data =="sorry"){
+					$("#show_invoice").html("Sorry no invoice details available");
+				}
+				else{
+					$("#show_invoice").html(data);
+				}
+				}
+			})
+		})
 })

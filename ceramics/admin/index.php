@@ -66,7 +66,7 @@ if (isset($_SESSION["userid"])) {
 							<input type="password" class="form-control" name="log_password" id="log_password" placeholder="Password" required/>
 							<p><br/></p>
 							<a href="forgot.php" style="color:#333; list-style:none;">Forgot Password</a><input type="submit" class="btn btn-success" style="float:right;" Value="Login">
-							<!--If user dont have an account then he/she will click on create account button-->
+							
 						</form>
 				</div>
 				<div class="panel-footer"><div id="p_error"></small>

@@ -9,50 +9,51 @@ if (!isset($_SESSION["userid"])) {
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Admin Portal</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  	<script type="text/javascript" src="./js/main.js"></script>
  	<script type="text/javascript" src="./js/calender.js"></script>
  	<style>
  		body{
- 		background-color:#d9d9d9;
+ 			background-color:#d9d9d9;
  		}
     		#calendar{
-    		background-color: cornflowerblue;
-    		color: #fff;
-    		border-radius: 5%;
-	    	box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+    			background-color: cornflowerblue;
+    			color: #fff;
+    			border-radius: 5%;
+	 	   	box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
 		}
 
 		#calendar>p{
-    		font-family: Verdana, Arial, sans-serif;
-    		padding: 10px 0;
-    		margin: 0;
-    		color: #fff;
-    		text-align: center;
+    			font-family: Verdana, Arial, sans-serif;
+    			padding: 10px 0;
+    			margin: 0;
+    			color: #fff;
+    			text-align: center;
 		}
 
 		#calendar-day{
-    		font-size: 30px;
+    			font-size: 30px;
 		}
 
 		#calendar-month-year{
-    		font-size: 20px;
+    			font-size: 20px;
 		}
 
 		#calendar-date{
-    		font-size: 64px;
-    		padding-top: 10px;
-    		padding-bottom: 0;
+    			font-size: 64px;
+    			padding-top: 10px;
+    			padding-bottom: 0;
 		}
+		
 		#topic{
-		text-align:center;
-		font-family:Bodani MT,Didot,Didot LT STD,Hoefier Text,Garamond,Time New Roman,serif;
+			text-align:center;
+			font-family:Bodani MT,Didot,Didot LT STD,Hoefier Text,Garamond,Time New Roman,serif;
 		}
 	</style>	
  </head>
@@ -64,14 +65,15 @@ if (!isset($_SESSION["userid"])) {
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card mx-auto">
-				  <img class="card-img-top mx-auto" style="width:60%;" src="./images/user.png" alt="Card image cap">
-				  <div class="card-body">
-				    <h4 class="card-title"></h4>
-				    <p class="card-text" id = "admin_name"><i class="fa fa-user">&nbsp;</i><?php echo($_SESSION["username"]." ".$_SESSION["username1"]);?></p>
-				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Admin</p>
-				    <p class="card-text" id ="admin_last_login">Last Login : <?php echo $_SESSION["last_login"];?></p>
-				    <a href="register.php" class="btn btn-primary"><i class="fa fa-edit">&nbsp;</i>Add New Admin</a>
-				  </div>
+				 <img class="card-img-top mx-auto" style="width:60%;" src="./images/user.png" alt="Card image cap">
+				 	<div class="card-body">
+				 	<h4 class="card-title"></h4>
+				 	<p class="card-text" id = "admin_name"><i class="fa fa-user">&nbsp;</i><?php echo($_SESSION["username"]." ".$_SESSION["username1"]);?></p>
+				    	<p class="card-text"><i class="fa fa-user">&nbsp;</i>Admin</p>
+				    	<p class="card-text" id ="admin_last_login">Last Login : <?php echo $_SESSION["last_login"];?></p>
+				    	<a href="register.php"><i class="fa fa-edit">&nbsp;</i>Add New Admin</a>&nbsp;&nbsp;
+				    	<a href="password.php"><i class="fa fa-edit">&nbsp;</i>Change Password</a>
+				  	</div>
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -85,7 +87,6 @@ if (!isset($_SESSION["userid"])) {
 
 						</div>
 						<div class="col-sm-6">
-						  <!---<div class="card">--->
 						   <div class="card-body">  	
 						      <div id="calendar">
             							<p id="calendar-day"></p>
@@ -93,7 +94,6 @@ if (!isset($_SESSION["userid"])) {
             							<p id="calendar-month-year"></p>
         					      </div>
         					    </div>
-						 <!--- </div>--->
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ if (!isset($_SESSION["userid"])) {
 						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
 						<a href="#" data-toggle="modal" data-target="#form_category" class="btn btn-primary">Add</a>
 						<a href="manage_categories.php" class="btn btn-primary">Manage</a>
-					</div>
+						</div>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -121,7 +121,7 @@ if (!isset($_SESSION["userid"])) {
 						<p class="card-text">Here you can manage your brand and you add new brand</p>
 						<a href="#" data-toggle="modal" data-target="#form_brand" class="btn btn-primary">Add</a>
 						<a href="manage_brand.php" class="btn btn-primary">Manage</a>
-					</div>
+						</div>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -131,7 +131,7 @@ if (!isset($_SESSION["userid"])) {
 						<p class="card-text">Here you can manage your prpducts and you add new products</p>
 						<a id = "add" href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary">Add</a>
 						<a href="manage_product.php" class="btn btn-primary">Manage</a>
-					</div>
+						</div>
 				</div>
 			</div>
 		</div>
@@ -143,7 +143,7 @@ if (!isset($_SESSION["userid"])) {
 						<h4 class="card-title">Customer Details</h4>
 						<p class="card-text">Here you can see customer details.</p>
 						<a href="manage_customers.php" class="btn btn-primary">Show Details</a>
-					</div>
+						</div>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -160,8 +160,8 @@ if (!isset($_SESSION["userid"])) {
 						<div class="card-body">
 						<h4 class="card-title">Invoice and sales</h4>
 						<p class="card-text">Detail information of sales and invoices.</p>
-						<a href="#" class="btn btn-primary">Manage</a>
-					</div>
+						<a href="manage_invoice.php" class="btn btn-primary">Manage</a>
+						</div>
 				</div>
 			</div>
 		</div>
