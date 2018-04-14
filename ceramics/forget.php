@@ -54,6 +54,7 @@ if(isset($_POST['submit']))
 		<script src="main.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="favicon.ico">
 	</head>
 <body>
 <div class="wait overlay">

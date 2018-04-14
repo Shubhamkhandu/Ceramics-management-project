@@ -9,7 +9,7 @@ if (isset($_SESSION["userid"])) {
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>VijayCeramics</title>
+	<title>Vijay Ceramics</title>
 	<script src="js/jquery2.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,6 +20,7 @@ if (isset($_SESSION["userid"])) {
  	<link rel="stylesheet" type="text/css" href="./includes/style.css">
  	<script type="text/javascript" rel="stylesheet" src="./js/main.js"></script>
 	<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+	<link rel="shortcut icon" href="favicon.ico">
 
  </head>
 <body>
@@ -65,7 +66,7 @@ if (isset($_SESSION["userid"])) {
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" name="log_password" id="log_password" placeholder="Password" required/>
 							<p><br/></p>
-							<a href="forgot.php" style="color:#333; list-style:none;">Forgot Password</a><input type="submit" class="btn btn-success" style="float:right;" Value="Login">
+							<a href="../forgot.php" style="color:#333; list-style:none;">Forgot Password</a><input type="submit" class="btn btn-success" style="float:right;" Value="Login">
 							
 						</form>
 				</div>

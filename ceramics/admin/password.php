@@ -17,6 +17,7 @@ include_once("./database/constants.php");
  	<link rel="stylesheet" type="text/css" href="./includes/style.css">
  	<script type="text/javascript" rel="stylesheet" src="./js/main.js"></script>
 	<link rel="stylesheet" href="./css/bootstrap.min.css"/>
+	<link rel="shortcut icon" href="favicon.ico">
 
  </head>
 <body>

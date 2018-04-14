@@ -85,7 +85,6 @@ $(document).ready(function(){
 			dataType : "json",
 			data : {updateCategory:1,id:eid},
 			success : function(data){
-				console.log(data);
 				$("#cid").val(data["cat_id"]);
 				$("#update_category").val(data["cat_title"]);
 				$("#parent_cat").val(data["parent_cat"]);
@@ -266,7 +265,6 @@ $(document).ready(function(){
 			method : "POST",
 			data : {showCustomer:1,pageno:pn},
 			success : function(data){
-				console.log(data);
 				$("#get_customer").html(data);		
 			}
 		})

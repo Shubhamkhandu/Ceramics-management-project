@@ -52,6 +52,7 @@ if (isset($_POST["st"])) {
 							<script src="js/jquery2.js"></script>
 							<script src="js/bootstrap.min.js"></script>
 							<script src="main.js"></script>
+							<link rel="shortcut icon" href="favicon.ico">
 							<style>
 								table tr td {padding:10px;}
 							</style>

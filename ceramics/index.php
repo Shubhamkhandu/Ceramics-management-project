@@ -17,6 +17,7 @@ session_start();
 	<script src="js/bootstrap.min.js"></script>
 	<script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
 	<style></style>
 
   </head>
@@ -86,21 +87,21 @@ session_start();
 
 	      <div class="item active">
 	        <img src="logo/logo1.jpeg" alt="Vijay Ceramics" style="width:100%;height:100%;">
-	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);bottom:initial;font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
 	          <h1>Vijay Ceramics</h1>
 	        </div>
 	      </div>
 
 	      <div class="item">
 	        <img src="logo/logo2.jpeg" alt="Vijay Ceramics" style="width:100%;height:100%;">
-	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);bottom:initial;font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
 	          <h1>Vijay Ceramics</h1>
 	        </div>
 	      </div>
 	    
 	      <div class="item">
 	        <img src="logo/logo3.jpg" alt="Vijay Ceramics" style="width:100%;height:100%;">
-	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
+	        <div class="carousel-caption" style="text-align:left;top:50%;transform:translateY(-50%);bottom:initial;font-family:Bodoni MT,Didot,Didot LT STD,Hoefler Text,Garamond,Times New Roman,serif;">
 	          <h1>Vijay Ceramics</h1>
 	        </div>
 	      </div>

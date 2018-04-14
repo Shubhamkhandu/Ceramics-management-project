@@ -17,6 +17,7 @@ session_start();
 	<script src="js/bootstrap.min.js"></script>
 	<script src="main.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
 	<style></style>
 
   </head>
