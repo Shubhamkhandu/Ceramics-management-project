@@ -6,6 +6,6 @@ define("USER","root");
 define("PASS","");
 define("DB","ceramics");
 
-define("DOMAIN","http://localhost/ceramics/admin");
+define("DOMAIN","http://localhost/ceramics1/ceramics/admin");
 
 ?>

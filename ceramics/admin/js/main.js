@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
-	var DOMAIN1 = "http://localhost/ceramics/admin";
-	var DOMAIN = "http://localhost/ceramics/admin/includes";
+	var DOMAIN1 = "http://localhost/ceramics1/ceramics/admin";
+	var DOMAIN = "http://localhost/ceramics1/ceramics/admin/includes";
 	
 	$("#register_form").on("submit",function(){
 		var status = false;
