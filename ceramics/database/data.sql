@@ -135,5 +135,5 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`, `usertype`, `register_date`, `last_login`) VALUES
 (1, 'Shinichi', 'Kudo', 'sk@gmail.com', 'c44a471bd78cc6c2fea32b9fe028d30a', '9873402305', 'Coep Hostel', 'Pune', 'Admin', '2017-12-23', '2018-03-01 04:03:17'),
-(2, 'Shubham', 'Khandelwal', 'shubham18@gmail.com', 'ae25736b64e474cd634075494d9fa88e', '8389080183', 'Opposite Khatri Store', 'Amravati', 'Admin', '2017-12-23', '2018-03-01 04:03:17');
+(2, 'test', 'website', 'test_website18@gmail.com', 'E02597D726391FDBE734F3C5774C7BF9', '8389080183', 'E-209 kalayan nagar', 'Delhi', 'Admin', '2017-12-23', '2018-03-01 04:03:17');
 
