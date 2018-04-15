@@ -117,7 +117,16 @@ $(document).ready(function(){
 				method : "POST",
 				data : $("#get_order_data").serialize(),
 				success : function(data){
-					if(data == "ORDER_FAIL_TO_COMPLETE"){
+					if(data == "discount"){
+						alert("Please enter number for discount");
+					}
+					else if(data == "paid"){
+						alert("Please enter proper paid field");
+					}
+					else if(data == "empty"){
+						alert("Please enter product to create invoice");
+					}
+					else if(data == "ORDER_FAIL_TO_COMPLETE"){
 						alert("Product is Out of stock");
 					}
 					else if (data < 0) {

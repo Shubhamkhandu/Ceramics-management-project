@@ -263,8 +263,13 @@ $(document).ready(function(){
 			method	:	"POST",
 			data	:	{updateCartItem:1,update_id:update_id,qty:qty},
 			success	:	function(data){
-				$("#cart_msg").html(data);
-				checkOutDetails();
+				if(data == "qty"){
+					alert("Please enter number as qunatity");
+				}
+				else{
+					$("#cart_msg").html(data);
+					checkOutDetails();
+				}
 			}
 		})
 

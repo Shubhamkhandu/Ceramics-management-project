@@ -385,6 +385,9 @@ if (isset($_POST["removeItemFromCart"])) {
 if (isset($_POST["updateCartItem"])) {
 	$update_id = $_POST["update_id"];
 	$qty = $_POST["qty"];
+	if(!is_int($qty)){
+	echo "qty";
+	}
 	$sql1 = "SELECT product_stock FROM products WHERE product_id = '$update_id'";
 	$run_query1 = mysqli_query($con,$sql1);
 	$count1 = mysqli_num_rows($run_query1);

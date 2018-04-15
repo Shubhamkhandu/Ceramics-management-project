@@ -314,6 +314,9 @@ if (isset($_POST["order_date"]) AND isset($_POST["cust_name"])) {
 	$ar_qty = $_POST["qty"];
 	$ar_price = $_POST["price"];
 	$ar_pro_name = $_POST["pro_name"];
+	if(!isset($_POST["qty"]){
+		echo"empty";
+	}
 
 
 	$sub_total = $_POST["sub_total"];
@@ -323,6 +326,13 @@ if (isset($_POST["order_date"]) AND isset($_POST["cust_name"])) {
 	$paid = $_POST["paid"];
 	$due = $_POST["due"];
 	$payment_type = $_POST["payment_type"];
+	if(!is_int($discount)){
+		echo"discount";
+	}
+	if(!is_int($paid)){
+		echo"paid";
+	}
+	
 	$m = new Manage();
 	echo $result = $m->storeCustomerOrderInvoice($cust_name,$orderdate,$ar_tqty,$ar_qty,$ar_price,$ar_pro_name,$sub_total,$gst,$discount,$net_total,$paid,$due,$payment_type);
 }
