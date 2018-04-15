@@ -139,7 +139,7 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"])){
 									<img src='product_images/$pro_image' style='width:200px; height:200px;'/>
 								</div>
 								<div class='panel-heading'>Rs.$pro_price.00
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>AddToCart</button>
+									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-success btn-xs'>AddToCart</button>
 								</div>
 							</div>
 							</a>
@@ -174,7 +174,7 @@ if(isset($_POST["addToCart"])){
 			if($count > 0){
 				$row=mysqli_fetch_array($run_query);
 				$pro_stock = $row['product_stock']; 
-				if($pro_stock == 0){
+				if($pro_stock < 1){
 					echo "
 						<div class='alert alert-warning'>
 							<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -215,7 +215,7 @@ if(isset($_POST["addToCart"])){
 			if($count > 0){
 				$row=mysqli_fetch_array($run_query);
 				$pro_stock = $row['product_stock']; 
-				if($pro_stock == 0){
+				if($pro_stock < 1){
 					echo "
 						<div class='alert alert-warning'>
 							<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -391,7 +391,7 @@ if (isset($_POST["updateCartItem"])) {
 	if($count1 > 0){
 		$row1=mysqli_fetch_array($run_query1);
 		$pro_stock = $row1['product_stock'];
-		$a=$pro_stock-$qty+1;
+		$a=$pro_stock-$qty;
 		if($a < 0) {
 			echo "<div class='alert alert-info'>
 						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
