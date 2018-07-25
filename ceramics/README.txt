@@ -14,7 +14,7 @@ Ceramics Management portal
         -Go to /admin/js/manage.js change DOMAIN  to your domain.
  5) For Login :
       Customer - register your account
-      admin - test_website18@gmail.com
+      admin - test18@gmail.com
       password -test_website
  6)For admin side features 
       -Add products/brand/category
